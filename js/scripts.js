@@ -2,14 +2,15 @@ var pizzas = [];
 
 function Pizza(size, toppings) {
   this.size = size;
-  this.toppings = [];
   this.addToppings(toppings);
 }
 
 Pizza.prototype.addToppings = function(toppings) {
+  var toPizza = [];
   toppings.forEach(function(top){
-    this.toppings.push(top);
+    toPizza.push(top);
   })
+  this.toppings = toPizza;
 }
 
 function Toppings(name, price){
@@ -30,7 +31,7 @@ function displayPizzas() {
   var htmlForPizzaInfo = "";
   for(var i=0;i<pizzas.length;i++){
     htmlForPizzaInfo += "<li id=" + i + ">" + pizza.size + " " + toppings.length + " topping pizza</li>";
-  });
+  };
   pizzaList.html(htmlForContactInfo);
 };
 
@@ -41,11 +42,11 @@ function showPizzaInfo(ind) {
     top + ", ";
   }));
   $(".price").html(pizzas[ind].getPrice());
-  contact.address.forEach(function(address){
+/*  contact.address.forEach(function(address){
     $("#ad").append("<p>" + address.type + ": " + address.address + "</p");
-  });$("#buttons");
-  $("#buttons");.empty();
-  $("#buttons");.append("<button class='removeButton' id=" + ind + ">Remove Pizza</button>");
+  })*/;$("#buttons");
+  $("#buttons").empty();
+  $("#buttons").append("<button class='removeButton' id=" + ind + ">Remove Pizza</button>");
 }
 
 function attachPizzaListeners() {
@@ -63,14 +64,18 @@ $(document).ready(function() {
   attachPizzaListeners();
   $("form#new-pizza").submit(function(event) {
     event.preventDefault();
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
-    var inputtedPhoneNumber = $("input#new-phone-number").val();
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-phone-number").val("");
-    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
-    addressBook.addContact(newContact);
-    displayContactDetails(addressBook);
+    var size = $("#size").val();
+    var tops = [];
+    $("input:checkbox[name=add-toppings]:checked").each(function(){
+      var theclass = $(this).attr('class');
+       tops.push(new Toppings(this.value,theclass));
+    });
+    console.log(tops);
+    $("input:checkbox[name=add-toppings]:checked").removeAttr('checked');
+    //$(".0").addAttr('checked');
+    pizzas.push(new Pizza(size, tops));
+
+    console.log(pizzas);
+    //displayContactDetails(addressBook);
   })
 })
