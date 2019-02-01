@@ -43,19 +43,26 @@ function displayPizzas() {
 function showPizza(ind) {
   $("#pizza-details").show();
   $(".size").html(pizzas[ind].size.name);
-  $(".toppings").html(pizzas[ind].toppings.forEach(function(top){
-    top + ", ";
-  }));
+  var topString = "";
+  pizzas[ind].toppings.forEach(function(top){
+    topString += top.name + ", ";
+  })
+  topString=topString.slice(0,toString.length-2);
+  $(".toppings").html(topString);
   $(".price").html(pizzas[ind].getPrice());
   $("#buttons").empty();
-  $("#buttons").append("<button class='removeButton' id=" + ind + ">Remove Pizza</button>");
+  $("#buttons").append("<button class='removePizza' id=" + ind + ">Remove Pizza</button>");
+}
+
+function removePizza(ind){
+  pizzas.splice(ind,1);
 }
 
 function attachPizzaListeners() {
   $("ul#pizza-list").on("click", "li", function() {
     showPizza(this.id);
   });
-  $("#buttons").on("click", ".deleteButton", function() {
+  $("#buttons").on("click", ".removePizza", function() {
     removePizza(this.id);
     $("#pizza-details").hide();
     displayPizzas();
