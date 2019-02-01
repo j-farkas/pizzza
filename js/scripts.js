@@ -34,43 +34,28 @@ function displayPizzas() {
   pizzaList.html(htmlForContactInfo);
 };
 
-function showContact(contactId) {
-  var contact = addressBook.findContact(contactId);
-  $("#show-contact").show();
-  $(".first-name").html(contact.firstName);
-  $(".last-name").html(contact.lastName);
-  $(".phone-number").html(contact.phoneNumber);
+function showPizzaInfo(ind) {
+  $("#pizza-details").show();
+  $(".size").html(pizzas[ind].size);
+  $(".toppings").html(pizzas[ind].toppings.forEach(function(top){
+    top + ", ";
+  }));
+  $(".price").html(pizzas[ind].getPrice());
   contact.address.forEach(function(address){
     $("#ad").append("<p>" + address.type + ": " + address.address + "</p");
-  });
-  var buttons = $("#buttons");
-  buttons.empty();
-  buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
-  buttons.append("<button class='addAddressButton' id=" +  + contact.id + ">Add Address</button>");
+  });$("#buttons");
+  $("#buttons");.empty();
+  $("#buttons");.append("<button class='removeButton' id=" + ind + ">Remove Pizza</button>");
 }
 
-function attachContactListeners() {
-  $("ul#contacts").on("click", "li", function() {
-    showContact(this.id);
+function attachPizzaListeners() {
+  $("ul#pizza-list").on("click", "li", function() {
+    showPizza(this.id);
   });
   $("#buttons").on("click", ".deleteButton", function() {
-    addressBook.deleteContact(this.id);
-    $("#show-contact").hide();
+    removePizza(this.id);
+    $("#pizza-details").hide();
     displayContactDetails(addressBook);
-  });
-  $("#buttons").off().on("click", ".addAddressButton", function() {
-    if($(".hidden").length < 1){
-      $(".showing").attr('class', 'hidden');
-    contact = addressBook.findContact(this.id);
-    contact.addAddress($("input#addressAdd").val(), $("input#typeAdd").val())
-    displayContactDetails(addressBook);
-    $("input#addressAdd").val("");
-    $("input#typeAdd").val("");
-    console.log(contact);
-    showContact(this.id);
-    }else{
-      $(".hidden").attr('class', 'showing');
-    }
   });
 };
 
