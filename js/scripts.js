@@ -1,3 +1,5 @@
+var pizzas = [];
+
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = [];
@@ -15,13 +17,21 @@ function Toppings(name, price){
   this.price = price;
 }
 
-function displayContactDetails(addressBookToDisplay) {
-  var contactsList = $("ul#contacts");
-  var htmlForContactInfo = "";
-  addressBookToDisplay.contacts.forEach(function(contact) {
-    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
+Pizza.prototype.getPrice = function(){
+  var price = 10;
+  toppings.forEach(function(top){
+    price += parseFloat(top.price);
+  })
+  return price;
+}
+
+function displayPizzas() {
+  var pizzaList = $("ul#pizza-list");
+  var htmlForPizzaInfo = "";
+  for(var i=0;i<pizzas.length;i++){
+    htmlForPizzaInfo += "<li id=" + i + ">" + pizza.size + " " + toppings.length + " topping pizza</li>";
   });
-  contactsList.html(htmlForContactInfo);
+  pizzaList.html(htmlForContactInfo);
 };
 
 function showContact(contactId) {
