@@ -1,64 +1,19 @@
-// Business Logic for AddressBook ---------
-function AddressBook() {
-  this.contacts = [],
-  this.currentId = 0
+function Pizza(size, toppings) {
+  this.size = size;
+  this.toppings = [];
+  this.addToppings(toppings);
 }
 
-AddressBook.prototype.addContact = function(contact) {
-  contact.id = this.assignId();
-  this.contacts.push(contact);
+Pizza.prototype.addToppings = function(toppings) {
+  toppings.forEach(function(top){
+    this.toppings.push(top);
+  })
 }
 
-AddressBook.prototype.assignId = function() {
-  this.currentId += 1;
-  return this.currentId;
+function Toppings(name, price){
+  this.name = name;
+  this.price = price;
 }
-
-AddressBook.prototype.findContact = function(id) {
-  for (var i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i]) {
-      if (this.contacts[i].id == id) {
-        return this.contacts[i];
-      }
-    }
-  };
-  return false;
-}
-
-AddressBook.prototype.deleteContact = function(id) {
-  for (var i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i]) {
-      if (this.contacts[i].id == id) {
-        delete this.contacts[i];
-        return true;
-      }
-    }
-  };
-  return false;
-}
-
-// Business Logic for Contacts ---------
-function Contact(firstName, lastName, phoneNumber) {
-  this.firstName = firstName,
-  this.lastName = lastName,
-  this.phoneNumber = phoneNumber,
-  this.address =  []
-}
-
-function Address(address, type){
-  this.address = address,
-  this.type = type
-}
-Contact.prototype.fullName = function() {
-  return this.firstName + " " + this.lastName;
-}
-
-Contact.prototype.addAddress = function(ad, type) {
-  this.address.push(new Address(ad, type));
-}
-
-// User Interface Logic ---------
-var addressBook = new AddressBook();
 
 function displayContactDetails(addressBookToDisplay) {
   var contactsList = $("ul#contacts");
