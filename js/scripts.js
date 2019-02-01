@@ -76,8 +76,7 @@ $(document).ready(function() {
     var size = new Size($("#size option:selected").text(),$("#size").val());
     var tops = [];
     $("input:checkbox[name=add-toppings]:checked").each(function(){
-      var theclass = $(this).attr('class');
-       tops.push(new Toppings(this.value,theclass));
+       tops.push(new Toppings(this.value,$(this).attr('class')));
     });
     $("input:checkbox[name=add-toppings]:checked").prop('checked', false);
     pizzas.push(new Pizza(size, tops));
