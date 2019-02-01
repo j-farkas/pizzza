@@ -82,8 +82,6 @@ $(document).ready(function() {
     });
     $("input:checkbox[name=add-toppings]:checked").removeAttr('checked');
     pizzas.push(new Pizza(size, tops));
-
-    console.log(pizzas);
     displayPizzas();
   })
 })
