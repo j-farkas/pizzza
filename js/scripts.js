@@ -69,7 +69,6 @@ function attachPizzaListeners() {
   });
 };
 
-
 $(document).ready(function() {
   attachPizzaListeners();
   $("form#new-pizza").submit(function(event) {
