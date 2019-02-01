@@ -11,7 +11,17 @@
   <body>
     <div class="container">
       <div class="well">
-        <h1>Pizza!</h1>
+        <div class="row">
+          <div class="col-md-2 green">
+            <h1>Pizza!</h1>
+          </div>
+          <div class="col-md-2 white">
+            <h1>Pizza!</h1>
+          </div>
+          <div class="col-md-2 red">
+            <h1>Pizza!</h1>
+          </div>
+        </div>
         <img src="img/pizza.jpg" alt="It's pizza">
       </div>
       <div class="row">
@@ -25,18 +35,18 @@
               <option value="12">Medium</option>
               <option value="14">Large</option>
             </select>
-              <input type="checkbox" name="add-toppings" class="0" value="Cheese" checked>Cheese<br>
-              <input type="checkbox" name="add-toppings" class="40" value="Pepperoni">Pepperoni<br>
-              <input type="checkbox" name="add-toppings" class="30" value="Onions">Onions<br>
-              <input type="checkbox" name="add-toppings" class="30" value="Tomatoes">Tomatoes<br>
-              <input type="checkbox" name="add-toppings" class="100" value="Anchovies">Anchovies<br>
-              <input type="checkbox" name="add-toppings" class="30" value="Olives">Olives<br>
-              <input type="checkbox" name="add-toppings" class="10" value="Basil">Basil<br>
-              <input type="checkbox" name="add-toppings" class="10" value="Garlic">Garlic<br>
-              <input type="checkbox" name="add-toppings" class="100" value="Ham">Ham<br>
-              <input type="checkbox" name="add-toppings" class="30" value="Peppers">Peppers<br>
-              <input type="checkbox" name="add-toppings" class="30" value="Spinach">Spinach<br>
-              <input type="checkbox" name="add-toppings" class="100" value="Chicken">Chicken<br>
+              <input type="checkbox" name="add-toppings" class="0 default" value="Cheese" checked><span class="green">Cheese</span><br>
+              <input type="checkbox" name="add-toppings" class="40" value="Pepperoni"><span class="white">Pepperoni</span><br>
+              <input type="checkbox" name="add-toppings" class="30" value="Onions"><span class="red">Onions</span><br>
+              <input type="checkbox" name="add-toppings" class="30" value="Tomatoes"><span class="green">Tomatoes</span><br>
+              <input type="checkbox" name="add-toppings" class="100" value="Anchovies"><span class="white">Anchovies</span><br>
+              <input type="checkbox" name="add-toppings" class="30" value="Olives"><span class="red">Olives</span><br>
+              <input type="checkbox" name="add-toppings" class="10" value="Basil"><span class="green">Basil</span><br>
+              <input type="checkbox" name="add-toppings" class="10" value="Garlic"><span class="white">Garlic</span><br>
+              <input type="checkbox" name="add-toppings" class="100" value="Ham"><span class="red">Ham</span><br>
+              <input type="checkbox" name="add-toppings" class="30" value="Peppers"><span class="green">Peppers</span><br>
+              <input type="checkbox" name="add-toppings" class="30" value="Spinach"><span class="white">Spinach</span><br>
+              <input type="checkbox" name="add-toppings" class="100" value="Chicken"><span class="red">Chicken</span><br>
             <button type="submit" class="btn-primary">Add</button>
           </form>
           <hr>

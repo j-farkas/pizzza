@@ -80,8 +80,9 @@ $(document).ready(function() {
       var theclass = $(this).attr('class');
        tops.push(new Toppings(this.value,theclass));
     });
-    $("input:checkbox[name=add-toppings]:checked").removeAttr('checked');
+    $("input:checkbox[name=add-toppings]:checked").prop('checked', false);
     pizzas.push(new Pizza(size, tops));
+    $(".default").prop("checked", true);
     displayPizzas();
   })
 })
