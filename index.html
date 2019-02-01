@@ -5,29 +5,35 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Address Book</title>
+    <title>Pizzas</title>
     <title></title>
   </head>
   <body>
     <div class="container">
-      <h1>Address Book</h1>
+      <h1>Pizza Ordering</h1>
       <div class="row">
         <div class="col-md-6">
           <hr>
           <h2>Add a Contact:</h2>
-          <form id="new-contact">
-            <div class="form-group">
-              <label for="new-first-name">First Name</label>
-              <input type="text"  class="form-control" id="new-first-name">
-            </div>
-            <div class="form-group">
-              <label for="new-last-name">Last Name</label>
-              <input type="text"  class="form-control" id="new-last-name">
-            </div>
-            <div class="form-group">
-              <label for="new-phone-number">Phone Number</label>
-              <input type="text"  class="form-control" id="new-phone-number">
-            </div>
+          <form id="new-pizza">
+            <select class="form-control" id="size">
+              <option value="personal">Personal</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+              <input type="checkbox" name="add-toppings" class="0" value="cheese" checked>Cheese<br>
+              <input type="checkbox" name="add-toppings" class="40" value="pepperoni">Pepperoni<br>
+              <input type="checkbox" name="add-toppings" class="30" value="onion">Onions<br>
+              <input type="checkbox" name="add-toppings" class="30" value="tomato">Tomatoes<br>
+              <input type="checkbox" name="add-toppings" class="100" value="anchovy">Anchovies<br>
+              <input type="checkbox" name="add-toppings" class="30" value="olive">Olives<br>
+              <input type="checkbox" name="add-toppings" class="10" value="basil">Basil<br>
+              <input type="checkbox" name="add-toppings" class="10" value="garlic">Garlic<br>
+              <input type="checkbox" name="add-toppings" class="100" value="ham">Ham<br>
+              <input type="checkbox" name="add-toppings" class="30" value="pepper">Peppers<br>
+              <input type="checkbox" name="add-toppings" class="30" value="spinach">Spinach<br>
+              <input type="checkbox" name="add-toppings" class="100" value="chicken">Chicken<br>
             <button type="submit" class="btn-primary">Add</button>
           </form>
           <hr>

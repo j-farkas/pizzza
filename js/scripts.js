@@ -55,13 +55,13 @@ function attachPizzaListeners() {
   $("#buttons").on("click", ".deleteButton", function() {
     removePizza(this.id);
     $("#pizza-details").hide();
-    displayContactDetails(addressBook);
+    //displayContactDetails(addressBook);
   });
 };
 
 $(document).ready(function() {
-  attachContactListeners();
-  $("form#new-contact").submit(function(event) {
+  attachPizzaListeners();
+  $("form#new-pizza").submit(function(event) {
     event.preventDefault();
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
