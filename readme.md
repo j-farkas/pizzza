@@ -1,6 +1,6 @@
-# _Beep Boop_
+# _Pizza project_
 
-#### _Beep Boop Project_
+#### _Pizza project_
 
 #### By _**Jared Farkas**_
 
